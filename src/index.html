@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Application de gestion d'étiquettes de prix pour superette bio"
+    />
+    <meta name="theme-color" content="#2ecc71" />
+    <title>Equiteque - Gestion d'Étiquettes</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- En-tête -->
+      <header class="header">
+        <h1>Equiteque - Gestion d'Étiquettes</h1>
+        <p class="subtitle">Créez et imprimez vos étiquettes de prix</p>
+      </header>
+
+      <!-- Barre d'actions principale -->
+      <div class="toolbar">
+        <button id="btn-new-product" class="btn btn-primary">
+          Nouveau Produit
+        </button>
+        <button id="btn-generate-labels" class="btn btn-success">
+          Générer Étiquettes
+        </button>
+        <button id="btn-select-all" class="btn btn-secondary" style="display: none;">
+          Sélectionner tout
+        </button>
+        <button id="btn-delete-selected" class="btn btn-danger" style="display: none;">
+          Supprimer la sélection (<span id="selected-count">0</span>)
+        </button>
+        <div class="search-box">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Rechercher un produit..."
+          />
+        </div>
+      </div>
+
+      <!-- Liste des produits -->
+      <div class="products-section">
+        <h2>Liste des Produits</h2>
+        <div id="products-list" class="products-table">
+          <!-- Les produits seront affichés ici -->
+        </div>
+        <div id="empty-state" class="empty-state">
+          <p>Aucun produit enregistré</p>
+          <p class="hint">Cliquez sur "Nouveau Produit" pour commencer</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal - Formulaire Produit -->
+    <div id="product-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title">Nouveau Produit</h2>
+          <button class="close-btn" id="close-modal">&times;</button>
+        </div>
+        <form id="product-form">
+          <div class="form-group">
+            <label for="product-name">Nom du produit *</label>
+            <input
+              type="text"
+              id="product-name"
+              required
+              placeholder="Ex: Lentille Corail"
+            />
+          </div>
+          <div class="form-group">
+            <label for="product-origin">Origine *</label>
+            <input
+              type="text"
+              id="product-origin"
+              required
+              placeholder="Ex: FRANCE"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label>Image de fond de l'étiquette</label>
+            <div class="background-gallery" id="background-gallery">
+              <div class="background-option" data-image="none" onclick="ProductsManager.selectBackground('none')">
+                <div class="background-thumbnail no-background">
+                  <span>Aucun fond</span>
+                </div>
+                <p>Aucun</p>
+              </div>
+              <div class="background-option" data-image="course.png" onclick="ProductsManager.selectBackground('course.png')">
+                <div class="background-thumbnail">
+                  <img src="/assets/backgrounds/course.png" alt="Course">
+                </div>
+                <p>Course</p>
+              </div>
+              <div class="background-option" data-image="logo2026.png" onclick="ProductsManager.selectBackground('logo2026.png')">
+                <div class="background-thumbnail">
+                  <img src="/assets/backgrounds/logo2026.png" alt="Logo 2026">
+                </div>
+                <p>Logo 2026</p>
+              </div>
+              <div class="background-option" data-image="OG 2026.png" onclick="ProductsManager.selectBackground('OG 2026.png')">
+                <div class="background-thumbnail">
+                  <img src="/assets/backgrounds/OG 2026.png" alt="OG 2026">
+                </div>
+                <p>OG 2026</p>
+              </div>
+              <div class="background-option" data-image="thumbsup.png" onclick="ProductsManager.selectBackground('thumbsup.png')">
+                <div class="background-thumbnail">
+                  <img src="/assets/backgrounds/thumbsup.png" alt="Thumbs Up">
+                </div>
+                <p>Thumbs Up</p>
+              </div>
+              <div class="background-option" data-image="vrac.png" onclick="ProductsManager.selectBackground('vrac.png')">
+                <div class="background-thumbnail">
+                  <img src="/assets/backgrounds/vrac.png" alt="Vrac">
+                </div>
+                <p>Vrac</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="preview-section">
+            <h3>Aperçu de l'étiquette</h3>
+            <div id="label-preview" class="label-preview">
+              <!-- Aperçu généré dynamiquement -->
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn btn-secondary" id="cancel-btn">
+              Annuler
+            </button>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal - Générateur d'Étiquettes -->
+    <div id="generator-modal" class="modal">
+      <div class="modal-content modal-large">
+        <div class="modal-header">
+          <h2>Générer Planche d'Étiquettes</h2>
+          <button class="close-btn" id="close-generator">&times;</button>
+        </div>
+        <div class="generator-content">
+          <div class="generator-scrollable">
+            <div class="generator-instructions">
+              <p>Cochez les produits à imprimer.</p>
+              <p class="info">Format A4 : 4 étiquettes par page (15 × 6 cm)</p>
+            </div>
+
+            <!-- Barre de recherche et tri -->
+            <div class="generator-controls">
+              <input
+                type="text"
+                id="generator-search"
+                placeholder="Rechercher un produit..."
+                class="generator-search-input"
+              />
+              <select id="generator-sort" class="generator-sort-select">
+                <option value="recent">Plus récents</option>
+                <option value="name-asc">Nom (A-Z)</option>
+                <option value="name-desc">Nom (Z-A)</option>
+              </select>
+            </div>
+
+            <div id="generator-list" class="generator-list">
+              <!-- Liste des produits avec checkbox -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="generator-pagination" id="generator-pagination">
+              <!-- Boutons de pagination générés dynamiquement -->
+            </div>
+          </div>
+
+          <div class="generator-fixed-bottom">
+            <div class="generator-summary">
+              <p>
+                Étiquettes sélectionnées : <strong id="total-labels">0</strong>
+              </p>
+              <p>Nombre de pages A4 : <strong id="total-pages">0</strong></p>
+            </div>
+            <div class="modal-actions">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="cancel-generator"
+              >
+                Annuler
+              </button>
+              <button type="button" class="btn btn-success" id="generate-pdf">
+                Générer PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jsPDF (local, hors-ligne) -->
+    <script src="/js/jspdf.umd.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/pdf-generator.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- PWA Registration -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((registration) => {
+              console.log("Service Worker enregistré:", registration);
+            })
+            .catch((error) => {
+              console.log("Erreur Service Worker:", error);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>

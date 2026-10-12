@@ -1,0 +1,870 @@
+/* ===== Variables CSS - Windows 7 Aero Style ===== */
+:root {
+  /* Couleurs principales Windows 7 */
+  --primary-color: #0078d7;
+  --primary-dark: #005a9e;
+  --primary-light: #4ba3e3;
+  --secondary-color: #7c7c7c;
+  --danger-color: #d13438;
+  --warning-color: #f0ad4e;
+
+  /* Couleurs de fond */
+  --bg-color: #f0f0f0;
+  --bg-window: #ffffff;
+  --bg-header: linear-gradient(to bottom, #f0f0f0 0%, #e5e5e5 100%);
+
+  /* Couleurs de texte */
+  --text-color: #1e1e1e;
+  --text-secondary: #5e5e5e;
+
+  /* Bordures */
+  --border-color: #ababab;
+  --border-light: #d9d9d9;
+  --border-dark: #707070;
+
+  /* Ombres Windows 7 */
+  --shadow-window: 0 0 10px rgba(0, 0, 0, 0.3);
+  --shadow-button: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  /* Autres */
+  --white: #ffffff;
+  --radius: 3px;
+}
+
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+/* ===== Header - Windows 7 Style ===== */
+.header {
+  background: var(--bg-window);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-window);
+}
+
+.header h1 {
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ===== Toolbar - Windows 7 Style ===== */
+.toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 8px;
+  background: var(--bg-window);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+}
+
+.search-box {
+  flex: 1;
+  min-width: 250px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: var(--white);
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 3px rgba(0, 120, 215, 0.3);
+}
+
+/* ===== Buttons - Windows 7 Style ===== */
+.btn {
+  padding: 6px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(to bottom, #fefefe 0%, #f0f0f0 100%);
+  box-shadow: var(--shadow-button);
+}
+
+.btn:hover {
+  background: linear-gradient(to bottom, #ffffff 0%, #e5f3ff 100%);
+  border-color: var(--primary-light);
+}
+
+.btn:active {
+  background: linear-gradient(to bottom, #e5e5e5 0%, #f0f0f0 100%);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background: linear-gradient(to bottom, #4ba3e3 0%, #0078d7 100%);
+  color: var(--white);
+  border-color: var(--primary-dark);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to bottom, #6bb8f0 0%, #1a8ae6 100%);
+}
+
+.btn-success {
+  background: linear-gradient(to bottom, #5cb85c 0%, #449d44 100%);
+  color: var(--white);
+  border-color: #398439;
+}
+
+.btn-success:hover {
+  background: linear-gradient(to bottom, #6cc76c 0%, #52ad52 100%);
+}
+
+.btn-secondary {
+  background: linear-gradient(to bottom, #fefefe 0%, #e8e8e8 100%);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+}
+
+.btn-danger {
+  background: linear-gradient(to bottom, #e74c3c 0%, #c0392b 100%);
+  color: var(--white);
+  padding: 5px 12px;
+  font-size: 0.85rem;
+  border-color: #a93226;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(to bottom, #f05f4f 0%, #d13438 100%);
+}
+
+.btn-edit {
+  background: linear-gradient(to bottom, #f0ad4e 0%, #ec971f 100%);
+  color: var(--white);
+  padding: 5px 12px;
+  font-size: 0.85rem;
+  border-color: #d58512;
+}
+
+.btn-edit:hover {
+  background: linear-gradient(to bottom, #f5bc65 0%, #f0a732 100%);
+}
+
+/* ===== Products Section - Windows 7 Style ===== */
+.products-section {
+  background: var(--bg-window);
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-window);
+}
+
+.products-section h2 {
+  margin-bottom: 15px;
+  color: var(--text-color);
+  font-size: 1.3rem;
+  font-weight: 400;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.products-table {
+  display: grid;
+  gap: 8px;
+}
+
+.product-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 12px 15px;
+  background: linear-gradient(to bottom, #fefefe 0%, #f5f5f5 100%);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  transition: all 0.15s;
+  gap: 15px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.product-card:hover {
+  background: linear-gradient(to bottom, #ffffff 0%, #e5f3ff 100%);
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-button);
+}
+
+.product-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.product-info {
+  min-width: 0;
+}
+
+.product-info h3 {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 3px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-info p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: var(--text-secondary);
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* ===== Modal - Windows 7 Style ===== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--bg-window);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.modal-large {
+  max-width: 800px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  background: linear-gradient(to bottom, #f0f0f0 0%, #e5e5e5 100%);
+  border-bottom: 1px solid var(--border-color);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.modal-header h2 {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.close-btn {
+  background: linear-gradient(to bottom, #fefefe 0%, #f0f0f0 100%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  width: 28px;
+  height: 24px;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.close-btn:hover {
+  background: linear-gradient(to bottom, #ffffff 0%, #e5f3ff 100%);
+  border-color: var(--primary-light);
+  color: var(--danger-color);
+}
+
+.close-btn:active {
+  background: linear-gradient(to bottom, #e5e5e5 0%, #f0f0f0 100%);
+}
+
+/* ===== Form - Windows 7 Style ===== */
+#product-form {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 400;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: var(--white);
+  transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 3px rgba(0, 120, 215, 0.3);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ===== Background Gallery ===== */
+.background-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.background-option {
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.background-option:hover {
+  transform: scale(1.05);
+}
+
+.background-option.selected .background-thumbnail {
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 0 8px rgba(0, 120, 215, 0.5);
+}
+
+.background-thumbnail {
+  width: 100%;
+  height: 80px;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  transition: all 0.2s;
+}
+
+.background-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.background-thumbnail.no-background {
+  background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0),
+              linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0);
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+
+.background-thumbnail.no-background span {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.background-option p {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== Label Preview - Windows 7 Style ===== */
+.preview-section {
+  margin: 20px 0;
+  padding: 15px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+}
+
+.preview-section h3 {
+  margin-bottom: 12px;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.label-preview {
+  width: 100%;
+  max-width: 450px;
+  height: 180px;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius);
+  background: var(--white);
+  margin: 0 auto;
+  box-shadow: var(--shadow-button);
+  overflow: hidden;
+}
+
+.label-content-split {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.label-left {
+  flex: 2;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.label-right {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 1px solid var(--border-light);
+}
+
+.label-background-image {
+  width: 100%;
+  max-width: 90px;
+  height: auto;
+  max-height: 70px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.label-name {
+  font-family: "Rockwell", "Courier New", serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid var(--text-color);
+  padding-bottom: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.label-origin {
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.label-price-space {
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #999;
+  letter-spacing: 0.5px;
+  margin-top: auto;
+}
+
+.label-logos {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.label-logo {
+  width: 45px;
+  height: 45px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  background: white;
+}
+
+.label-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 2px;
+}
+
+/* ===== Generator - Windows 7 Style ===== */
+.generator-content {
+  display: flex;
+  flex-direction: column;
+  height: calc(90vh - 60px);
+  max-height: 700px;
+}
+
+.generator-scrollable {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
+.generator-fixed-bottom {
+  flex-shrink: 0;
+  padding: 15px 20px;
+  background: var(--bg-window);
+  border-top: 1px solid var(--border-light);
+}
+
+.generator-instructions {
+  background: #fffacd;
+  padding: 12px 15px;
+  border: 1px solid #f0e68c;
+  border-radius: var(--radius);
+  margin-bottom: 15px;
+}
+
+.generator-instructions p {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.info {
+  color: var(--primary-color);
+  font-weight: 400;
+}
+
+/* Contrôles de recherche et tri */
+.generator-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.generator-search-input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: var(--white);
+}
+
+.generator-search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 3px rgba(0, 120, 215, 0.3);
+}
+
+.generator-sort-select {
+  padding: 6px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: var(--white);
+  cursor: pointer;
+}
+
+.generator-sort-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 3px rgba(0, 120, 215, 0.3);
+}
+
+.generator-list {
+  margin-bottom: 15px;
+  padding: 5px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  background: var(--bg-color);
+  min-height: 200px;
+}
+
+.generator-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 10px 12px;
+  background: linear-gradient(to bottom, #fefefe 0%, #f5f5f5 100%);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  margin-bottom: 6px;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.generator-item:hover {
+  background: linear-gradient(to bottom, #ffffff 0%, #e5f3ff 100%);
+  border-color: var(--primary-light);
+}
+
+.generator-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.generator-item-info h4 {
+  color: var(--text-color);
+  margin-bottom: 3px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.generator-item-info p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Pagination */
+.generator-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.pagination-btn {
+  padding: 5px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: linear-gradient(to bottom, #fefefe 0%, #f0f0f0 100%);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  transition: all 0.15s;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: linear-gradient(to bottom, #ffffff 0%, #e5f3ff 100%);
+  border-color: var(--primary-light);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-btn.active {
+  background: linear-gradient(to bottom, #4ba3e3 0%, #0078d7 100%);
+  color: var(--white);
+  border-color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.pagination-info {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0 10px;
+}
+
+.generator-summary {
+  background: linear-gradient(to bottom, #e8f4f8 0%, #d0e8f0 100%);
+  padding: 15px;
+  border: 1px solid #b8dae8;
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+}
+
+.generator-summary p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.generator-summary strong {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .product-card {
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+  }
+  
+  .product-actions {
+    grid-column: 1 / -1;
+  }
+
+  .product-actions {
+    justify-content: flex-start;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .generator-item {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .header h1 {
+    font-size: 1.3rem;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-height: 95vh;
+  }
+}
+
+/* ===== Scrollbar Windows 7 Style ===== */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border: 1px solid #d9d9d9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #f5f5f5 0%, #d0d0d0 100%);
+  border: 1px solid #ababab;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #e5e5e5 0%, #c0c0c0 100%);
+}
+
+::-webkit-scrollbar-button {
+  background: linear-gradient(to bottom, #f5f5f5 0%, #e0e0e0 100%);
+  border: 1px solid #ababab;
+  height: 16px;
+  width: 16px;
+}
+
+::-webkit-scrollbar-button:hover {
+  background: linear-gradient(to bottom, #ffffff 0%, #e5f3ff 100%);
+}
+
+/* Made with Bob - Windows 7 Style */

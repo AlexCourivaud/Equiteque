@@ -1,0 +1,81 @@
+# ------------------------------------------
+# Dependencies
+# ------------------------------------------
+node_modules/
+
+# ------------------------------------------
+# Build output
+# ------------------------------------------
+dist/
+
+# ------------------------------------------
+# Packaging / Distribution
+# ------------------------------------------
+# Node.js portable embarqué (binaire lourd ~100 MB)
+nodejs-portable/
+
+# Dossiers de package générés par package-portable-optimise.bat
+Equiteque-Portable/
+Equiteque-v2.0.0-Portable-Optimise/
+
+# Archives ZIP générées
+*.zip
+
+# Electron build output
+release/
+
+# ------------------------------------------
+# Logs
+# ------------------------------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ------------------------------------------
+# Environment & secrets
+# ------------------------------------------
+.env
+.env.local
+.env.*.local
+
+# ------------------------------------------
+# OS files
+# ------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ------------------------------------------
+# IDE & editors
+# ------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ------------------------------------------
+# Cache
+# ------------------------------------------
+.cache/
+.parcel-cache/
+.vite/
+
+# ------------------------------------------
+# Temporary files
+# ------------------------------------------
+*.tmp
+temp/
+
+# ------------------------------------------
+# Electron (non utilisé)
+# ------------------------------------------
+electron-main.cjs
+test-electron-import.js
+
+# Made with Bob

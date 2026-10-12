@@ -1,0 +1,63 @@
+{
+  "name": "equiteque-labels",
+  "version": "2.0.0",
+  "description": "Application web de gestion d'étiquettes de prix pour superette bio",
+  "main": "electron-main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite",
+    "electron": "electron .",
+    "electron-dev": "npm run build && electron .",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder",
+    "dist-win": "npm run build && electron-builder --win --x64"
+  },
+  "author": "Equiteque",
+  "license": "MIT",
+  "dependencies": {
+    "jspdf": "^2.5.1"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^26.15.3",
+    "vite": "^5.0.0"
+  },
+  "build": {
+    "appId": "com.equiteque.labels",
+    "productName": "Equiteque",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron-main.cjs",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "Equiteque-${version}-portable.exe"
+    },
+    "portable": {
+      "artifactName": "Equiteque-portable.exe"
+    },
+    "extraResources": [
+      {
+        "from": "dist",
+        "to": "dist",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  }
+}

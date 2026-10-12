@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Logo EU Bio (étoiles européennes) simplifié -->
+  <rect width="100" height="100" fill="#003399" rx="5"/>
+  <!-- Cercle d'étoiles simplifié -->
+  <circle cx="50" cy="35" r="2" fill="#FFCC00"/>
+  <circle cx="60" cy="37" r="2" fill="#FFCC00"/>
+  <circle cx="65" cy="45" r="2" fill="#FFCC00"/>
+  <circle cx="60" cy="53" r="2" fill="#FFCC00"/>
+  <circle cx="50" cy="55" r="2" fill="#FFCC00"/>
+  <circle cx="40" cy="53" r="2" fill="#FFCC00"/>
+  <circle cx="35" cy="45" r="2" fill="#FFCC00"/>
+  <circle cx="40" cy="37" r="2" fill="#FFCC00"/>
+  <!-- Feuille stylisée -->
+  <path d="M 45 60 Q 50 70 55 60 Q 50 65 45 60" fill="#FFCC00"/>
+  <text x="50" y="85" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">EU</text>
+  <text x="50" y="95" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">ORGANIC</text>
+</svg>
+
+<!-- Made with Bob -->
