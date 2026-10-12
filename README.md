@@ -1,4 +1,4 @@
-﻿# 🏪 Equiteque - Gestion d'Étiquettes
+# 🏪 Equiteque - Gestion d'Étiquettes
 
 Application web portable pour créer et imprimer des étiquettes de prix pour superette bio.
 
@@ -52,6 +52,14 @@ C'est tout ! 🎉
 
 ---
 
+## 📸 Aperçu
+
+| Création d'une étiquette | Sélection pour impression | Résultat PDF |
+|:---:|:---:|:---:|
+| ![Création étiquette](docs/capture-creation-etiquette.png) | ![Étiquette à imprimer](docs/capture-etiquette-a-imprimer.png) | ![Impression étiquette](docs/capture-impression-etiquette.png) |
+
+---
+
 ## 📱 Utilisation de l'Application
 
 ### Créer un Produit
@@ -63,6 +71,8 @@ C'est tout ! 🎉
 3. Choisissez une image de fond (optionnel)
 4. Cliquez sur **"Enregistrer"**
 
+![Création d'une étiquette](docs/capture-creation-etiquette.png)
+
 ### Générer des Étiquettes PDF
 
 1. Cliquez sur **"Générer Étiquettes"**
@@ -72,6 +82,10 @@ C'est tout ! 🎉
 5. Imprimez sur papier A4
 
 **Format :** 4 étiquettes par page (15 × 6 cm)
+
+![Sélection des étiquettes](docs/capture-etiquette-a-imprimer.png)
+
+![Résultat impression](docs/capture-impression-etiquette.png)
 
 ### Modifier un Produit
 
