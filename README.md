@@ -1,6 +1,8 @@
-# 🏪 Equiteque - Gestion d'Étiquettes
+﻿# 🏪 Equiteque - Gestion d'Étiquettes
 
 Application web portable pour créer et imprimer des étiquettes de prix pour superette bio.
+
+Créer avec l'agent IA : IBM Bob
 
 **Version :** 2.0.0 | **Licence :** MIT | **Système :** Windows 10/11
 
@@ -130,6 +132,7 @@ Vos produits sont sauvegardés **automatiquement** dans votre navigateur (LocalS
 ### Le navigateur ne s'ouvre pas automatiquement
 
 Ouvrez manuellement votre navigateur et allez sur :
+
 ```
 http://localhost:3000
 ```
@@ -147,12 +150,12 @@ Vérifiez que vous passez bien par `LANCER_EQUITEQUE.bat` et non en ouvrant `ind
 
 ## ⚙️ Configuration Requise
 
-| | |
-|---|---|
-| **Système** | Windows 10 ou 11 |
-| **Navigateur** | Chrome, Edge, Firefox (recommandé : Edge) |
-| **Espace disque** | ~100 MB |
-| **Internet** | Non requis |
+|                   |                                           |
+| ----------------- | ----------------------------------------- |
+| **Système**       | Windows 10 ou 11                          |
+| **Navigateur**    | Chrome, Edge, Firefox (recommandé : Edge) |
+| **Espace disque** | ~100 MB                                   |
+| **Internet**      | Non requis                                |
 
 ---
 
@@ -183,6 +186,7 @@ Crée une version optimisée dans le dossier `dist/`.
 ## Créer le Package Portable
 
 Double-cliquez sur `package-portable-optimise.bat` — le script :
+
 1. Build l'application (`npm run build`)
 2. Copie `dist/`, `node.exe`, `server.js`, `LANCER_EQUITEQUE.bat`
 3. Génère le ZIP `Equiteque-v2.0.0-Portable-Optimise.zip`
@@ -222,14 +226,14 @@ equiteque/
 
 ## 🔧 Technologies
 
-| | |
-|---|---|
-| **Frontend** | Vanilla JavaScript (pas de framework) |
-| **Build Tool** | Vite |
-| **Serveur** | Node.js HTTP natif |
-| **Stockage** | LocalStorage (navigateur) |
-| **PDF** | jsPDF |
-| **PWA** | Service Worker + Web Manifest |
+|                |                                       |
+| -------------- | ------------------------------------- |
+| **Frontend**   | Vanilla JavaScript (pas de framework) |
+| **Build Tool** | Vite                                  |
+| **Serveur**    | Node.js HTTP natif                    |
+| **Stockage**   | LocalStorage (navigateur)             |
+| **PDF**        | jsPDF                                 |
+| **PWA**        | Service Worker + Web Manifest         |
 
 ---
 
@@ -241,7 +245,7 @@ equiteque/
 
 ```css
 :root {
-  --primary-color: #2ecc71;   /* Vert */
+  --primary-color: #2ecc71; /* Vert */
   --secondary-color: #3498db; /* Bleu */
 }
 ```
@@ -249,13 +253,10 @@ equiteque/
 ### Modifier les logos bio
 
 Remplacez les fichiers dans `src/assets/` :
+
 - `Certification_bio_AB.jpg`
 - `Eurofeuille_couleurAB.jpg`
 
 ### Ajouter des images de fond
 
 Ajoutez vos images dans `src/assets/backgrounds/`.
-
----
-
-**Made with ❤️ by Bob**
